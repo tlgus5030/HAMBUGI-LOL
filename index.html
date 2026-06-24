@@ -195,17 +195,17 @@
         .team-title-blue { color: #60a5fa; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
         .team-title-red { color: #f87171; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
 
-        /* 🛡️ 세련된 e스포츠 선수 카드 (그리드 비율 최적화로 글자 깨짐 완전 방지) */
+        /* 🛡️ 메인 대시보드 내전 매칭룸 선수 카드 (가독성 개선) */
         .player-card {
             display: grid;
-            grid-template-columns: 1fr 1.8fr 0.6fr 0.9fr;
-            gap: 8px;
-            padding: 12px 16px;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
+            gap: 12px;
+            padding: 14px 18px;
             margin-bottom: 8px;
             background: #111726;
             border: 1px solid #1e293b;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             align-items: center;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -221,29 +221,29 @@
         .red .player-card:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1); }
 
         .p-tier {
-            font-weight: 700;
+            font-weight: 800;
             text-align: center;
             border-radius: 4px;
-            padding: 3px 6px;
-            font-size: 12px;
+            padding: 4px 10px;
+            font-size: 13px;
             width: fit-content;
             margin: 0 auto;
-            letter-spacing: -0.2px;
+            letter-spacing: 0.3px;
         }
         
-        /* 티어 색상 톤다운 보정 */
-        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-        .tier-GM { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-        .tier-M { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-        .tier-D { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .tier-E { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .tier-P { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
-        .tier-G { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.25); }
-        .tier-S { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
-        .tier-B { background: rgba(180, 83, 9, 0.15); color: #fb923c; border: 1px solid rgba(180, 83, 9, 0.3); }
-        .tier-I { background: rgba(115, 115, 115, 0.15); color: #a3a3a3; border: 1px solid rgba(115, 115, 115, 0.3); }
+        /* 티어 색상 시인성 강화 보정 */
+        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #fbbf24; }
+        .tier-GM { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #f87171; }
+        .tier-M { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid #f472b6; }
+        .tier-D { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #60a5fa; }
+        .tier-E { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #34d399; }
+        .tier-P { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid #22d3ee; }
+        .tier-G { background: rgba(234, 179, 8, 0.18); color: #facc15; border: 1px solid #facc15; }
+        .tier-S { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
+        .tier-B { background: rgba(180, 83, 9, 0.2); color: #fb923c; border: 1px solid #fb923c; }
+        .tier-I { background: rgba(115, 115, 115, 0.2); color: #a3a3a3; border: 1px solid #a3a3a3; }
 
-        .p-pos { text-align: right; color: #94a3b8; font-size: 13px; font-weight: 500; white-space: nowrap; }
+        .p-pos { text-align: right; color: #f1f5f9; font-size: 15px; font-weight: 700; white-space: nowrap; }
 
         /* 🗂️ 메모장 관리소 레이아웃 */
         .db-grid-layout {
@@ -427,7 +427,7 @@
             btn.classList.add('active');
         }
 
-        /* 📺 방송 화공 송출용 분리 윈도우 보정 (기본 해상도 가로 폭 1550px로 확장) */
+        /* 📺 방송 화공 송출용 분리 윈도우 스타일 및 구조 강화 (가시성 극대화) */
         function openBroadcastPopup() {
             if (popupWindow && !popupWindow.closed) {
                 popupWindow.focus();
@@ -452,22 +452,46 @@
                         .title-blue { color: #60a5fa; border-bottom: 1px solid rgba(59, 130, 246, 0.2); }
                         .title-red { color: #f87171; border-bottom: 1px solid rgba(239, 68, 68, 0.2); }
                         
-                        /* 🛠️ 선수 카드 내부 레이아웃 비율 개선 (글자 수 무관 겹침 완전히 차단) */
-                        .player-card { display: grid; grid-template-columns: 1fr 1.8fr 0.6fr 0.9fr; gap: 8px; padding: 16px 20px; margin-bottom: 10px; font-size: 18px; font-weight: 600; background: #111726; border: 1px solid #1e293b; border-radius: 8px; align-items: center; }
+                        /* 👑 3단 균등 그리드 재배치 및 가독성 대폭 향상 */
+                        .player-card { 
+                            display: grid; 
+                            grid-template-columns: 1.2fr 1fr 1.2fr; 
+                            gap: 15px; 
+                            padding: 18px 20px; 
+                            margin-bottom: 12px; 
+                            background: #111726; 
+                            border: 1px solid #1e293b; 
+                            border-radius: 8px; 
+                            align-items: center; 
+                        }
                         .blue .player-card { border-color: rgba(59, 130, 246, 0.15); }
                         .red .player-card { border-color: rgba(239, 68, 68, 0.15); }
-                        .p-tier { font-weight: 700; text-align: center; border-radius: 4px; padding: 3px 6px; font-size: 13px; width: fit-content; margin: 0 auto; }
-                        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-                        .tier-GM { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-                        .tier-M { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-                        .tier-D { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-                        .tier-E { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-                        .tier-P { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
-                        .tier-G { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.25); }
-                        .tier-S { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
-                        .tier-B { background: rgba(180, 83, 9, 0.15); color: #fb923c; border: 1px solid rgba(180, 83, 9, 0.3); }
-                        .tier-I { background: rgba(115, 115, 115, 0.15); color: #a3a3a3; border: 1px solid rgba(115, 115, 115, 0.3); }
-                        .p-pos { text-align: right; font-weight: 600; color: #94a3b8; font-size: 16px; white-space: nowrap; }
+                        
+                        /* 🏷️ 방송용 티어 마크 크기 및 굵기 확장 */
+                        .p-tier { 
+                            font-size: 16px; 
+                            font-weight: 800; 
+                            text-align: center; 
+                            border-radius: 6px; 
+                            padding: 5px 14px; 
+                            width: fit-content; 
+                            margin: 0 auto; 
+                            min-width: 45px;
+                            letter-spacing: 0.5px;
+                        }
+                        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #fbbf24; }
+                        .tier-GM { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #f87171; }
+                        .tier-M { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid #f472b6; }
+                        .tier-D { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #60a5fa; }
+                        .tier-E { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #34d399; }
+                        .tier-P { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid #22d3ee; }
+                        .tier-G { background: rgba(234, 179, 8, 0.18); color: #facc15; border: 1px solid #facc15; }
+                        .tier-S { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
+                        .tier-B { background: rgba(180, 83, 9, 0.2); color: #fb923c; border: 1px solid #fb923c; }
+                        .tier-I { background: rgba(115, 115, 115, 0.2); color: #a3a3a3; border: 1px solid #a3a3a3; }
+                        
+                        /* 🏹 라인 가독성 극대화 */
+                        .p-pos { text-align: right; font-weight: 700; color: #ffffff; font-size: 18px; white-space: nowrap; }
                     </style>
                 </head>
                 <body>
@@ -664,26 +688,26 @@
             }
         }
 
+        /* 메인 대시보드 우측 팀 현황판 카드 (롤 닉네임 삭제 및 가독성 업그레이드) */
         function createPlayerCard(player) {
             const card = document.createElement("div");
             card.className = "player-card";
             const icon = posIcons[player.pos] || '❓';
             card.innerHTML = `
-                <div style="font-weight:700; color:#f8fafc;">${player.name}</div>
-                <div style="font-size:12px; color:var(--text-muted); text-overflow:ellipsis; overflow:hidden; white-space:nowrap; font-weight:normal;">${player.lolName || '-'}</div>
+                <div style="font-size: 16px; font-weight:800; color:#ffffff;">${player.name}</div>
                 <div class="p-tier tier-${player.tier}">${player.tier}</div>
-                <div class="p-pos">${icon} ${player.pos}</div>
+                <div class="p-pos" style="color: #cbd5e1;">${icon} ${player.pos}</div>
             `;
             return card;
         }
 
+        /* 📺 방송 화공 분리 창 전용 카드 (롤 닉네임 완벽 제거 및 폰트 초대형 확장) */
         function createPopupCard(player) {
             const card = popupWindow.document.createElement("div");
             card.className = "player-card";
             const icon = posIcons[player.pos] || '❓';
             card.innerHTML = `
-                <div style="font-weight:700; color:#f8fafc;">${player.name}</div>
-                <div style="color:var(--text-muted); text-overflow:ellipsis; overflow:hidden; white-space:nowrap; font-size:14px; font-weight:normal;">${player.lolName || '-'}</div>
+                <div style="font-size: 20px; font-weight: 800; color: #ffffff;">${player.name}</div>
                 <div class="p-tier tier-${player.tier}">${player.tier}</div>
                 <div class="p-pos">${icon} ${player.pos}</div>
             `;
