@@ -15,7 +15,7 @@
             --blue-bg: rgba(59, 130, 246, 0.06);
             --blue-glow: rgba(59, 130, 246, 0.15);
             
-            --red-team: #ef4444;          /* 고급스러운 크림슨 레드 */
+            --red-team: #ef4444;          /* 고급스러운 크림슨 */
             --red-bg: rgba(239, 68, 68, 0.06);
             --red-glow: rgba(239, 68, 68, 0.15);
             
@@ -42,7 +42,7 @@
             border-bottom: 1px solid var(--panel-border);
             padding-bottom: 20px;
             width: 100%;
-            max-width: 1600px;
+            max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -61,7 +61,6 @@
             gap: 10px;
         }
 
-        /* 📑 미니멀 탭 메뉴 네비게이션 */
         .tab-nav {
             display: flex;
             gap: 8px;
@@ -76,7 +75,7 @@
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-btn.active {
@@ -86,20 +85,18 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* 🏛️ 메인 컨텐츠 영역 및 토글 제어 */
         .tab-content {
             display: none;
             width: 100%;
-            max-width: 1600px;
+            max-width: 1200px;
         }
 
         .tab-content.active {
             display: grid;
         }
 
-        /* 🎮 내전 매칭룸 화면 레이아웃 */
         #matchRoomPage {
-            grid-template-columns: 1.1fr 1fr;
+            grid-template-columns: 1.4fr 0.8fr;
             gap: 25px;
         }
 
@@ -124,13 +121,15 @@
             padding-bottom: 12px;
             border-bottom: 1px solid var(--panel-border);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            position: relative;
             letter-spacing: -0.3px;
             color: #e2e8f0;
         }
+        .panel-title span { position: absolute; left: 0; font-weight: 700; }
+        .panel-title small { position: absolute; right: 0; font-size: 12px; color: var(--text-muted); font-weight: normal; }
 
-        /* 📋 참가자 명단 로우 스타일 */
         .entry-row {
             display: grid;
             grid-template-columns: 1.2fr 1.5fr 0.7fr 0.7fr 1.1fr;
@@ -142,6 +141,7 @@
             border-radius: 8px;
             border: 1px solid transparent;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
         .entry-row.selected {
             border-color: rgba(245, 158, 11, 0.4);
@@ -166,7 +166,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        /* 🔵🔴 사이버 펑크 스타일 팀 보드 */
         .board-container {
             display: flex;
             flex-direction: column;
@@ -176,9 +175,10 @@
         .team-section {
             border-radius: 12px;
             padding: 20px;
-            min-height: 250px;
             border: 1px solid transparent;
             transition: all 0.3s;
+            flex: 1;
+            box-sizing: border-box;
         }
 
         .team-section.blue { 
@@ -192,60 +192,66 @@
             box-shadow: inset 0 0 20px var(--red-glow);
         }
 
-        .team-title-blue { color: #60a5fa; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
-        .team-title-red { color: #f87171; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
+        .team-title-blue { color: #60a5fa; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; text-align: center; }
+        .team-title-red { color: #f87171; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; text-align: center; }
 
-        /* 🛡️ 메인 대시보드 내전 매칭룸 선수 카드 (가독성 개선) */
         .player-card {
             display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr;
-            gap: 12px;
+            grid-template-columns: 1fr 1fr 1fr; /* 완벽한 1:1:1 삼등분 레이아웃 */
+            gap: 10px;
             padding: 14px 18px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             background: #111726;
             border: 1px solid #1e293b;
             border-radius: 8px;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
             align-items: center;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .player-card:last-child {
+            margin-bottom: 0;
         }
         .player-card:hover {
             transform: translateY(-1px);
             background: #161f33;
         }
-        .blue .player-card { border-color: rgba(59, 130, 246, 0.15); }
-        .blue .player-card:hover { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1); }
         
-        .red .player-card { border-color: rgba(239, 68, 68, 0.15); }
-        .red .player-card:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1); }
+        .p-name { 
+            text-align: left; 
+            color: #ffffff; 
+            font-size: 15px; 
+            font-weight: 800; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: visible;
+            width: 100%;
+        }
 
         .p-tier {
             font-weight: 800;
             text-align: center;
-            border-radius: 4px;
-            padding: 4px 10px;
-            font-size: 13px;
-            width: fit-content;
-            margin: 0 auto;
+            border-radius: 6px;
+            padding: 4px 0;
+            font-size: 12px;
+            width: 45px;
+            justify-self: center; /* 카드 정중앙 정렬 */
             letter-spacing: 0.3px;
         }
         
-        /* 티어 색상 시인성 강화 보정 */
-        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #fbbf24; }
-        .tier-GM { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #f87171; }
-        .tier-M { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid #f472b6; }
-        .tier-D { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #60a5fa; }
-        .tier-E { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #34d399; }
-        .tier-P { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid #22d3ee; }
-        .tier-G { background: rgba(234, 179, 8, 0.18); color: #facc15; border: 1px solid #facc15; }
-        .tier-S { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
-        .tier-B { background: rgba(180, 83, 9, 0.2); color: #fb923c; border: 1px solid #fb923c; }
-        .tier-I { background: rgba(115, 115, 115, 0.2); color: #a3a3a3; border: 1px solid #a3a3a3; }
+        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.5); }
+        .tier-GM { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5); }
+        .tier-M { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.5); }
+        .tier-D { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.5); }
+        .tier-E { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.5); }
+        .tier-P { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.5); }
+        .tier-G { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+        .tier-S { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+        .tier-B { background: rgba(180, 83, 9, 0.15); color: #fb923c; border: 1px solid rgba(180, 83, 9, 0.4); }
+        .tier-I { background: rgba(115, 115, 115, 0.15); color: #a3a3a3; border: 1px solid rgba(115, 115, 115, 0.4); }
 
-        .p-pos { text-align: right; color: #f1f5f9; font-size: 15px; font-weight: 700; white-space: nowrap; }
+        .p-pos { text-align: right; color: #ffffff; font-size: 14px; font-weight: 700; white-space: nowrap; justify-self: end; width: 100%; }
 
-        /* 🗂️ 메모장 관리소 레이아웃 */
         .db-grid-layout {
             display: grid;
             grid-template-columns: 1fr 1.6fr;
@@ -328,7 +334,10 @@
 
     <div id="matchRoomPage" class="tab-content active">
         <div class="panel">
-            <div class="panel-title">👥 실시간 참가 인원 (10인) <span style="font-size:12px; color:var(--text-muted); font-weight:normal;">* 이름/초성 자동 검색</span></div>
+            <div class="panel-title">
+                <span>👥 실시간 참가 인원 (10인)</span>
+                <small>* 이름/초성 자동 검색</small>
+            </div>
             <div id="entryList"></div>
             
             <div class="controls">
@@ -350,8 +359,8 @@
             
             <div style="background: #0f1626; border: 1px solid var(--panel-border); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="font-size: 13px; font-weight: 700; color: #cbd5e1; display: flex; justify-content: space-between; align-items: center;">
-                    <span>📋 디스코드 제출용 텍스트 (자동 추출)</span>
-                    <button onclick="copyDiscordText()" style="padding: 5px 12px; font-size: 11px; background: #3b82f6; color: #fff; border:none; height:auto; border-radius:4px; font-weight:600;">복사하기</button>
+                    <span>📋 디스코드 제출용 텍스트</span>
+                    <button onclick="copyDiscordText()" style="padding: 5px 12px; font-size: 11px; background: #3b82f6; color: #fff; border:none; height:auto; border-radius:4px; font-weight:600;">복사</button>
                 </div>
                 <textarea id="discordTextOutput" rows="4" style="font-family: monospace; font-size: 12px; color: #94a3b8; background:#090d16; border-color:#1e293b;" readonly></textarea>
             </div>
@@ -360,14 +369,16 @@
 
     <div id="memoPage" class="tab-content">
         <div class="panel">
-            <div class="panel-title">🗂️ 내전 멤버 통합 저장소 관리</div>
+            <div class="panel-title">
+                <span>🗂️ 내전 멤버 통합 저장소 관리</span>
+            </div>
             
             <div class="db-grid-layout">
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div style="background: #0f1626; padding: 18px; border-radius: 8px; border: 1px dashed #334155;">
-                        <div style="font-size: 12px; font-weight: bold; color: var(--accent-gold); margin-bottom: 10px;">📋 구글 스프레드시트 일괄 데이터 가져오기</div>
-                        <textarea id="csvPasteInput" rows="3" placeholder="구글 스프레드시트 셀 범위를 마우스로 복사한 후 붙여넣기 하세요."></textarea>
-                        <button onclick="importFromGoogleSheet()" style="background: #2563eb; color: #fff; padding: 10px; width: 100%; margin-top: 10px; border:none; border-radius:6px; font-weight:600;">⚡ 명단 로드하기</button>
+                        <div style="font-size: 12px; font-weight: bold; color: var(--accent-gold); margin-bottom: 10px;">📋 메모장/디코 데이터 일괄 가져오기</div>
+                        <textarea id="csvPasteInput" rows="4" placeholder="양식: 닉네임 / 롤 닉네임 / 티어 / 라인 &#13;&#10;(예시: 홍길동/길동이닉/GM/탑)&#13;&#10;* 한 줄에 한 명씩 적어서 붙여넣으세요."></textarea>
+                        <button onclick="importFromTextArea()" style="background: #2563eb; color: #fff; padding: 10px; width: 100%; margin-top: 10px; border:none; border-radius:6px; font-weight:600;">⚡ 명단 로드하기</button>
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 8px; background: #0f1626; padding: 16px; border-radius: 8px; border:1px solid var(--panel-border);">
@@ -390,7 +401,13 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <div style="font-size: 14px; font-weight: 700; color: var(--text-main);">📋 메모장 등록 멤버 (<span id="memberCount">0</span>명) <span style="font-size:12px; color:var(--text-muted); font-weight:normal; margin-left:10px;">* 리스트 내부 수정 시 실시간 자동 저장됩니다.</span></div>
+                    <div style="font-size: 14px; font-weight: 700; color: var(--text-main); display: flex; justify-content: space-between; align-items: center;">
+                        <span>📋 메모장 등록 멤버 (<span id="memberCount">0</span>명)</span>
+                        <div style="display: flex; gap: 6px;">
+                            <button onclick="copyAllDatabaseToClipboard()" style="background: #10b981; border: none; color: #fff; padding: 6px 14px; font-size: 12px; border-radius: 4px;">📋 전체 명단 복사</button>
+                            <button onclick="clearAllDatabase()" style="background: #ef4444; border: none; color: #fff; padding: 6px 14px; font-size: 12px; border-radius: 4px;">🧹 전체 명단 초기화</button>
+                        </div>
+                    </div>
                     <div class="db-list" id="dbList"></div>
                 </div>
             </div>
@@ -403,6 +420,7 @@
 
         let mockDatabase = JSON.parse(localStorage.getItem('hambugi_db')) || {};
         let popupWindow = null; 
+        let hasResizedToCompact = false;
 
         let currentPlayers = Array.from({ length: 10 }, (_, i) => ({
             id: i, name: "", lolName: "", tier: "", pos: "", team: "미지정", selected: false
@@ -427,77 +445,70 @@
             btn.classList.add('active');
         }
 
-        /* 📺 방송 화공 송출용 분리 윈도우 스타일 및 구조 강화 (가시성 극대화) */
         function openBroadcastPopup() {
             if (popupWindow && !popupWindow.closed) {
                 popupWindow.focus();
                 return;
             }
 
-            popupWindow = window.open("", "BroadcastWindow", "width=1550,height=800,resizable=yes,scrollbars=yes");
-            
+            hasResizedToCompact = false; 
+            popupWindow = window.open("", "BroadcastWindow", "width=900,height=760,resizable=yes,scrollbars=yes");
             popupWindow.document.write(`
                 <html>
                 <head>
                     <title>📺 방송용 실시간 현황판</title>
                     <style>
-                        body { background-color: #0b0f19; color: #f1f5f9; font-family: system-ui, -apple-system, sans-serif; padding: 30px; margin: 0; display: grid; grid-template-columns: 1fr 1.1fr 1.1fr; gap: 30px; -webkit-font-smoothing: antialiased; }
-                        .panel { background-color: #131a2e; border: 1px solid #1f2a45; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-                        .team-section { border-radius: 12px; padding: 20px; min-height: 600px; border: 1px solid transparent; }
-                        .waiting { background-color: #111726; border-color: #1f2a45; }
-                        .blue { background-color: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.2); box-shadow: inset 0 0 25px rgba(59, 130, 246, 0.15); }
-                        .red { background-color: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.2); box-shadow: inset 0 0 25px rgba(239, 68, 68, 0.15); }
-                        .title { font-size: 18px; font-weight: 700; text-align: center; margin-bottom: 25px; padding-bottom: 12px; letter-spacing: -0.5px; }
-                        .title-wait { color: #94a3b8; border-bottom: 1px solid #1f2a45; }
+                        html, body { height: 100%; margin: 0; padding: 0; background-color: #0b0f19; }
+                        body { color: #f1f5f9; font-family: system-ui, -apple-system, sans-serif; padding: 20px; display: flex; gap: 20px; box-sizing: border-box; -webkit-font-smoothing: antialiased; overflow: hidden; }
+                        .waiting-section { flex: 0 0 280px; background-color: #111726; border: 1px solid #1f2a45; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; box-sizing: border-box; height: 100%; }
+                        .waiting-list-box { flex: 1; overflow-y: auto; padding-right: 4px; }
+                        .waiting-list-box::-webkit-scrollbar { width: 6px; }
+                        .waiting-list-box::-webkit-scrollbar-thumb { background: #1f2a45; border-radius: 4px; }
+                        .teams-container { flex: 1; display: flex; flex-direction: column; gap: 16px; height: 100%; }
+                        .team-section-box { flex: 1; background-color: #131a2e; border: 1px solid #1f2a45; border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; justify-content: flex-start; box-shadow: 0 10px 30px rgba(0,0,0,0.3); box-sizing: border-box; overflow: visible; }
+                        .blue { background-color: rgba(59, 130, 246, 0.04); border-color: rgba(59, 130, 246, 0.2); box-shadow: inset 0 0 25px rgba(59, 130, 246, 0.12); }
+                        .red { background-color: rgba(239, 68, 68, 0.04); border-color: rgba(239, 68, 68, 0.2); box-shadow: inset 0 0 25px rgba(239, 68, 68, 0.12); }
+                        .title { font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 12px; padding-bottom: 8px; letter-spacing: -0.5px; }
+                        .title-wait { color: #94a3b8; border-bottom: 1px solid #1f2a45; margin-bottom: 12px; }
                         .title-blue { color: #60a5fa; border-bottom: 1px solid rgba(59, 130, 246, 0.2); }
                         .title-red { color: #f87171; border-bottom: 1px solid rgba(239, 68, 68, 0.2); }
-                        
-                        /* 👑 3단 균등 그리드 재배치 및 가독성 대폭 향상 */
-                        .player-card { 
-                            display: grid; 
-                            grid-template-columns: 1.2fr 1fr 1.2fr; 
-                            gap: 15px; 
-                            padding: 18px 20px; 
-                            margin-bottom: 12px; 
-                            background: #111726; 
-                            border: 1px solid #1e293b; 
-                            border-radius: 8px; 
-                            align-items: center; 
-                        }
+                        .cards-grid { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+                        .teams-container.full-width-mode { flex-direction: row; }
+                        .teams-container.full-width-mode .team-section-box { height: 100%; }
+                        .teams-container.full-width-mode .cards-grid { gap: 10px; margin-top: 5px; }
+                        .player-card { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 10px 16px; background: #111726; border: 1px solid #1e293b; border-radius: 8px; align-items: center; font-size: 15px; font-weight: 800; }
                         .blue .player-card { border-color: rgba(59, 130, 246, 0.15); }
                         .red .player-card { border-color: rgba(239, 68, 68, 0.15); }
-                        
-                        /* 🏷️ 방송용 티어 마크 크기 및 굵기 확장 */
-                        .p-tier { 
-                            font-size: 16px; 
-                            font-weight: 800; 
-                            text-align: center; 
-                            border-radius: 6px; 
-                            padding: 5px 14px; 
-                            width: fit-content; 
-                            margin: 0 auto; 
-                            min-width: 45px;
-                            letter-spacing: 0.5px;
-                        }
-                        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #fbbf24; }
-                        .tier-GM { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #f87171; }
-                        .tier-M { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid #f472b6; }
-                        .tier-D { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #60a5fa; }
-                        .tier-E { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #34d399; }
-                        .tier-P { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid #22d3ee; }
-                        .tier-G { background: rgba(234, 179, 8, 0.18); color: #facc15; border: 1px solid #facc15; }
-                        .tier-S { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
-                        .tier-B { background: rgba(180, 83, 9, 0.2); color: #fb923c; border: 1px solid #fb923c; }
-                        .tier-I { background: rgba(115, 115, 115, 0.2); color: #a3a3a3; border: 1px solid #a3a3a3; }
-                        
-                        /* 🏹 라인 가독성 극대화 */
-                        .p-pos { text-align: right; font-weight: 700; color: #ffffff; font-size: 18px; white-space: nowrap; }
+                        .p-name { text-align: left; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
+                        .p-tier { font-size: 12px; font-weight: 800; text-align: center; border-radius: 6px; padding: 3px 0; width: 45px; justify-self: center; letter-spacing: 0.5px; }
+                        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.5); }
+                        .tier-GM { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5); }
+                        .tier-M { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.5); }
+                        .tier-D { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.5); }
+                        .tier-E { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.5); }
+                        .tier-P { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.5); }
+                        .tier-G { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+                        .tier-S { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+                        .tier-B { background: rgba(180, 83, 9, 0.15); color: #fb923c; border: 1px solid rgba(180, 83, 9, 0.4); }
+                        .tier-I { background: rgba(115, 115, 115, 0.15); color: #a3a3a3; border: 1px solid rgba(115, 115, 115, 0.4); }
+                        .p-pos { text-align: right; font-weight: 700; color: #ffffff; font-size: 14px; white-space: nowrap; justify-self: end; width: 100%; }
                     </style>
                 </head>
                 <body>
-                    <div class="panel team-section waiting"><div class="title title-wait">⚜️ 대기 플레이어 명단</div><div id="pWait"></div></div>
-                    <div class="panel team-section blue"><div class="title title-blue">🔹 1팀 (블루)</div><div id="pBlue"></div></div>
-                    <div class="panel team-section red"><div class="title title-red">🔸 2팀 (레드)</div><div id="pRed"></div></div>
+                    <div id="wSection" class="waiting-section">
+                        <div class="title title-wait">⚜️ 대기 플레이어 명단</div>
+                        <div id="pWait" class="waiting-list-box"></div>
+                    </div>
+                    <div id="tContainer" class="teams-container">
+                        <div class="team-section-box blue">
+                            <div class="title title-blue">🔹 1팀 (블루)</div>
+                            <div id="pBlue" class="cards-grid"></div>
+                        </div>
+                        <div class="team-section-box red">
+                            <div class="title title-red">🔸 2팀 (레드)</div>
+                            <div id="pRed" class="cards-grid"></div>
+                        </div>
+                    </div>
                 </body>
                 </html>
             `);
@@ -510,17 +521,17 @@
             renderDBList();
         }
 
-        function importFromGoogleSheet() {
+        function importFromTextArea() {
             const rawText = document.getElementById("csvPasteInput").value;
-            if(!rawText.trim()) { alert("클립보드 데이터 로드 실패!"); return; }
+            if(!rawText.trim()) { alert("입력된 텍스트 데이터가 없습니다."); return; }
 
             const lines = rawText.split("\n");
             let importCount = 0;
 
             lines.forEach(line => {
                 if(!line.trim()) return;
-                const row = line.split("\t");
                 
+                const row = line.trim().split("/");
                 const name = row[0] ? row[0].trim() : "";
                 const lolName = row[1] ? row[1].trim() : "";
                 const tier = row[2] ? row[2].trim().toUpperCase() : "";
@@ -533,13 +544,55 @@
             });
 
             if(importCount > 0) {
-                alert(`🚀 데이터베이스: 총 ${importCount}명의 유저 정보가 성공적으로 등록되었습니다.`);
+                alert(`🚀 성공: 총 ${importCount}명의 멤버 정보가 명단에 등록되었습니다.`);
                 document.getElementById("csvPasteInput").value = "";
                 saveDB();
                 syncCurrentPlayersWithDB();
             } else {
-                alert("⚠️ 구조가 유효하지 않습니다. 올바른 복사 양식인지 확인해 주세요.");
+                alert("⚠️ 인식 실패: 데이터 구조(이름/닉네임/티어/라인)나 티어 대문자 입력(예: GM, D, P)을 확인해 주세요.");
             }
+        }
+
+        function copyAllDatabaseToClipboard() {
+            const keys = Object.keys(mockDatabase);
+            if (keys.length === 0) {
+                alert("저장소에 등록된 멤버 데이터가 없습니다.");
+                return;
+            }
+
+            let exportText = "";
+            keys.sort().forEach(name => {
+                const p = mockDatabase[name];
+                exportText += `${name}/${p.lolName}/${p.tier}/${p.pos}\n`;
+            });
+
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = exportText.trim();
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextArea);
+
+            alert("📋 저장소 내의 전체 명단 데이터가 슬래시(/) 양식으로 클립보드에 복사되었습니다!");
+        }
+
+        function clearAllDatabase() {
+            if (!confirm("⚠️ 경고: 저장소에 등록된 모든 멤버 데이터가 영구히 삭제됩니다.\n정말로 전체 초기화를 진행할까요?")) {
+                return;
+            }
+            if (!confirm("‼️ 마지막 확인: 복구할 수 없습니다. 정말 명단을 전부 비우시겠습니까?")) {
+                return;
+            }
+
+            mockDatabase = {};
+            saveDB();
+            
+            currentPlayers.forEach(p => {
+                p.name = ""; p.lolName = ""; p.tier = ""; p.pos = ""; p.team = "미지정"; p.selected = false;
+            });
+            
+            sortAllPlayersStructure();
+            alert("🧼 저장소 및 라이브 매칭룸 정보가 완전히 초기화되었습니다.");
         }
 
         function addMemberToDB() {
@@ -582,7 +635,7 @@
                     p.pos = mockDatabase[p.name].pos;
                 }
             });
-            renderRightBoards();
+            sortAllPlayersStructure();
         }
 
         function renderDBList() {
@@ -623,6 +676,18 @@
                 `;
                 listContainer.appendChild(item);
             });
+        }
+
+        function sortAllPlayersStructure() {
+            currentPlayers.sort((a, b) => {
+                const rankA = a.team === '1팀' ? 1 : a.team === '2팀' ? 2 : 3;
+                const rankB = b.team === '1팀' ? 1 : b.team === '2팀' ? 2 : 3;
+                if (rankA !== rankB) return rankA - rankB;
+
+                return (tierRank[a.tier] || 99) - (tierRank[b.tier] || 99);
+            });
+            currentPlayers.forEach((p, i) => p.id = i);
+            render();
         }
 
         function render() {
@@ -678,8 +743,27 @@
                 const pWait = popupWindow.document.getElementById("pWait");
                 const pBlue = popupWindow.document.getElementById("pBlue");
                 const pRed = popupWindow.document.getElementById("pRed");
+                
+                const wSection = popupWindow.document.getElementById("wSection");
+                const tContainer = popupWindow.document.getElementById("tContainer");
 
                 if (pWait && pBlue && pRed) {
+                    if (waitingTeam.length === 0 && blueTeam.length > 0 && redTeam.length > 0) {
+                        if (wSection) wSection.style.display = "none";
+                        if (tContainer) tContainer.classList.add("full-width-mode");
+                        if (!hasResizedToCompact) {
+                            popupWindow.resizeTo(900, 500); 
+                            hasResizedToCompact = true;
+                        }
+                    } else {
+                        if (wSection) wSection.style.display = "flex";
+                        if (tContainer) tContainer.classList.remove("full-width-mode");
+                        if (hasResizedToCompact) {
+                            popupWindow.resizeTo(900, 760);
+                            hasResizedToCompact = false;
+                        }
+                    }
+
                     pWait.innerHTML = ""; pBlue.innerHTML = ""; pRed.innerHTML = "";
                     waitingTeam.forEach(p => pWait.appendChild(createPopupCard(p)));
                     blueTeam.slice(0, 5).forEach(p => pBlue.appendChild(createPopupCard(p)));
@@ -688,26 +772,24 @@
             }
         }
 
-        /* 메인 대시보드 우측 팀 현황판 카드 (롤 닉네임 삭제 및 가독성 업그레이드) */
         function createPlayerCard(player) {
             const card = document.createElement("div");
             card.className = "player-card";
             const icon = posIcons[player.pos] || '❓';
             card.innerHTML = `
-                <div style="font-size: 16px; font-weight:800; color:#ffffff;">${player.name}</div>
+                <div class="p-name">${player.name}</div>
                 <div class="p-tier tier-${player.tier}">${player.tier}</div>
-                <div class="p-pos" style="color: #cbd5e1;">${icon} ${player.pos}</div>
+                <div class="p-pos">${icon} ${player.pos}</div>
             `;
             return card;
         }
 
-        /* 📺 방송 화공 분리 창 전용 카드 (롤 닉네임 완벽 제거 및 폰트 초대형 확장) */
         function createPopupCard(player) {
             const card = popupWindow.document.createElement("div");
             card.className = "player-card";
             const icon = posIcons[player.pos] || '❓';
             card.innerHTML = `
-                <div style="font-size: 20px; font-weight: 800; color: #ffffff;">${player.name}</div>
+                <div class="p-name">${player.name}</div>
                 <div class="p-tier tier-${player.tier}">${player.tier}</div>
                 <div class="p-pos">${icon} ${player.pos}</div>
             `;
@@ -780,22 +862,6 @@
         function updatePlayerTeam(id, team) {
             currentPlayers.find(x => x.id === id).team = team;
             sortAllPlayersStructure();
-        }
-
-        function sortAllPlayersStructure() {
-            currentPlayers.sort((a, b) => {
-                if (!a.name && b.name) return 1;
-                if (a.name && !b.name) return -1;
-                if (!a.name && !b.name) return 0;
-                
-                const rankA = a.team === '1팀' ? 1 : a.team === '2팀' ? 2 : 3;
-                const rankB = b.team === '1팀' ? 1 : b.team === '2팀' ? 2 : 3;
-                if (rankA !== rankB) return rankA - rankB;
-
-                return (tierRank[a.tier] || 99) - (tierRank[b.tier] || 99);
-            });
-            currentPlayers.forEach((p, i) => p.id = i);
-            render();
         }
 
         function swapTeams() {
