@@ -7,21 +7,19 @@
     <style>
         /* 🌌 프리미엄 세련된 미드나잇 다크 테마 (눈 피로 최소화) */
         :root {
-            --bg-color: #0b0f19;          /* 깊고 부드러운 미드나잇 네이비 */
-            --panel-bg: #131a2e;          /* 정제된 다크 블루 패널 */
-            --panel-border: #1f2a45;      /* 세련된 메탈릭 라인 */
-            
-            --blue-team: #3b82f6;         /* e스포츠 스타일 사이언 블루 */
+            --bg-color: #0b0f19; /* 깊고 부드러운 미드나잇 네이비 */
+            --panel-bg: #131a2e; /* 정제된 다크 블루 패널 */
+            --panel-border: #1f2a45; /* 세련된 메탈릭 라인 */
+
+            --blue-team: #3b82f6; /* e스포츠 스타일 사이언 블루 */
             --blue-bg: rgba(59, 130, 246, 0.06);
             --blue-glow: rgba(59, 130, 246, 0.15);
-            
-            --red-team: #ef4444;          /* 고급스러운 크림슨 */
+            --red-team: #ef4444; /* 고급스러운 크림슨 */
             --red-bg: rgba(239, 68, 68, 0.06);
             --red-glow: rgba(239, 68, 68, 0.15);
-            
-            --text-main: #f1f5f9;         /* 눈이 피로하지 않은 소프트 화이트 */
-            --text-muted: #64748b;        /* 차분한 슬레이트 그레이 */
-            --accent-gold: #f59e0b;       /* 은은한 앰버 골드 포인트 */
+            --text-main: #f1f5f9; /* 눈이 피로하지 않은 소프트 화이트 */
+            --text-muted: #64748b; /* 차분한 슬레이트 그레이 */
+            --accent-gold: #f59e0b; /* 은은한 앰버 골드 포인트 */
         }
 
         body {
@@ -48,18 +46,18 @@
             align-items: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+            header h1 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
 
         .tab-nav {
             display: flex;
@@ -78,12 +76,12 @@
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .tab-btn.active {
-            background-color: #1e293b;
-            color: #ffffff;
-            border-color: #475569;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
+            .tab-btn.active {
+                background-color: #1e293b;
+                color: #ffffff;
+                border-color: #475569;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
 
         .tab-content {
             display: none;
@@ -91,9 +89,9 @@
             max-width: 1200px;
         }
 
-        .tab-content.active {
-            display: grid;
-        }
+            .tab-content.active {
+                display: grid;
+            }
 
         #matchRoomPage {
             grid-template-columns: 1.4fr 0.8fr;
@@ -127,8 +125,20 @@
             letter-spacing: -0.3px;
             color: #e2e8f0;
         }
-        .panel-title span { position: absolute; left: 0; font-weight: 700; }
-        .panel-title small { position: absolute; right: 0; font-size: 12px; color: var(--text-muted); font-weight: normal; }
+
+            .panel-title span {
+                position: absolute;
+                left: 0;
+                font-weight: 700;
+            }
+
+            .panel-title small {
+                position: absolute;
+                right: 0;
+                font-size: 12px;
+                color: var(--text-muted);
+                font-weight: normal;
+            }
 
         .entry-row {
             display: grid;
@@ -143,10 +153,11 @@
             transition: all 0.2s ease;
             cursor: pointer;
         }
-        .entry-row.selected {
-            border-color: rgba(245, 158, 11, 0.4);
-            background: #232d44;
-        }
+
+            .entry-row.selected {
+                border-color: rgba(245, 158, 11, 0.4);
+                background: #232d44;
+            }
 
         input, select, textarea {
             background-color: #0f1626;
@@ -160,11 +171,12 @@
             box-sizing: border-box;
             transition: all 0.2s;
         }
-        input:focus, select:focus, textarea:focus {
-            border-color: #3b82f6;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-        }
+
+            input:focus, select:focus, textarea:focus {
+                border-color: #3b82f6;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            }
 
         .board-container {
             display: flex;
@@ -181,19 +193,35 @@
             box-sizing: border-box;
         }
 
-        .team-section.blue { 
-            background-color: var(--blue-bg); 
-            border-color: rgba(59, 130, 246, 0.2);
-            box-shadow: inset 0 0 20px var(--blue-glow);
-        }
-        .team-section.red { 
-            background-color: var(--red-bg); 
-            border-color: rgba(239, 68, 68, 0.2);
-            box-shadow: inset 0 0 20px var(--red-glow);
+            .team-section.blue {
+                background-color: var(--blue-bg);
+                border-color: rgba(59, 130, 246, 0.2);
+                box-shadow: inset 0 0 20px var(--blue-glow);
+            }
+
+            .team-section.red {
+                background-color: var(--red-bg);
+                border-color: rgba(239, 68, 68, 0.2);
+                box-shadow: inset 0 0 20px var(--red-glow);
+            }
+
+        .team-title-blue {
+            color: #60a5fa;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+            text-align: center;
         }
 
-        .team-title-blue { color: #60a5fa; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; text-align: center; }
-        .team-title-red { color: #f87171; font-size: 16px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; text-align: center; }
+        .team-title-red {
+            color: #f87171;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+            text-align: center;
+        }
 
         .player-card {
             display: grid;
@@ -209,21 +237,23 @@
             align-items: center;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .player-card:last-child {
-            margin-bottom: 0;
-        }
-        .player-card:hover {
-            transform: translateY(-1px);
-            background: #161f33;
-        }
-        
-        .p-name { 
-            text-align: left; 
-            color: #ffffff; 
-            font-size: 15px; 
-            font-weight: 800; 
-            white-space: nowrap; 
-            overflow: hidden; 
+
+            .player-card:last-child {
+                margin-bottom: 0;
+            }
+
+            .player-card:hover {
+                transform: translateY(-1px);
+                background: #161f33;
+            }
+
+        .p-name {
+            text-align: left;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 800;
+            white-space: nowrap;
+            overflow: hidden;
             text-overflow: visible;
             width: 100%;
         }
@@ -238,19 +268,76 @@
             justify-self: center; /* 카드 정중앙 정렬 */
             letter-spacing: 0.3px;
         }
-        
-        .tier-C, .tier-CH { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.5); }
-        .tier-GM { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5); }
-        .tier-M { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.5); }
-        .tier-D { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.5); }
-        .tier-E { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.5); }
-        .tier-P { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.5); }
-        .tier-G { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
-        .tier-S { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
-        .tier-B { background: rgba(180, 83, 9, 0.15); color: #fb923c; border: 1px solid rgba(180, 83, 9, 0.4); }
-        .tier-I { background: rgba(115, 115, 115, 0.15); color: #a3a3a3; border: 1px solid rgba(115, 115, 115, 0.4); }
 
-        .p-pos { text-align: right; color: #ffffff; font-size: 14px; font-weight: 700; white-space: nowrap; justify-self: end; width: 100%; }
+        .tier-C, .tier-CH {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.5);
+        }
+
+        .tier-GM {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.5);
+        }
+
+        .tier-M {
+            background: rgba(236, 72, 153, 0.15);
+            color: #f472b6;
+            border: 1px solid rgba(236, 72, 153, 0.5);
+        }
+
+        .tier-D {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .tier-E {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.5);
+        }
+
+        .tier-P {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.5);
+        }
+
+        .tier-G {
+            background: rgba(234, 179, 8, 0.12);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .tier-S {
+            background: rgba(148, 163, 184, 0.15);
+            color: #cbd5e1;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .tier-B {
+            background: rgba(180, 83, 9, 0.15);
+            color: #fb923c;
+            border: 1px solid rgba(180, 83, 9, 0.4);
+        }
+
+        .tier-I {
+            background: rgba(115, 115, 115, 0.15);
+            color: #a3a3a3;
+            border: 1px solid rgba(115, 115, 115, 0.4);
+        }
+
+        .p-pos {
+            text-align: right;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+            justify-self: end;
+            width: 100%;
+        }
 
         .db-grid-layout {
             display: grid;
@@ -258,6 +345,7 @@
             gap: 24px;
             margin-top: 5px;
         }
+
         .db-list {
             max-height: 560px;
             overflow-y: auto;
@@ -266,6 +354,7 @@
             background: #0f1626;
             padding: 6px;
         }
+
         .db-item {
             display: grid;
             grid-template-columns: 1fr 1.4fr 0.7fr 0.7fr auto;
@@ -275,13 +364,32 @@
             font-size: 14px;
             border-bottom: 1px solid var(--panel-border);
         }
-        .db-item:last-child { border: none; }
-        .db-item input, .db-item select { padding: 6px 8px; font-size: 13px; background-color: #161f33;}
-        
+
+            .db-item:last-child {
+                border: none;
+            }
+
+            .db-item input, .db-item select {
+                padding: 6px 8px;
+                font-size: 13px;
+                background-color: #161f33;
+            }
+
         .btn-delete {
-            background: none; border: none; color: #f87171; cursor: pointer; padding: 4px; font-size: 13px; font-weight: bold;
+            background: none;
+            border: none;
+            color: #f87171;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 13px;
+            font-weight: bold;
         }
-        .btn-delete:hover { color: #ef4444; background: rgba(239, 68, 68, 0.1); border-radius: 4px; }
+
+            .btn-delete:hover {
+                color: #ef4444;
+                background: rgba(239, 68, 68, 0.1);
+                border-radius: 4px;
+            }
 
         .controls {
             display: flex;
@@ -290,7 +398,10 @@
             padding-top: 20px;
             border-top: 1px solid var(--panel-border);
         }
-        .controls button { flex: 1; }
+
+            .controls button {
+                flex: 1;
+            }
 
         button {
             background-color: #1e293b;
@@ -303,22 +414,34 @@
             transition: all 0.2s;
             font-size: 13px;
         }
-        button:hover {
-            background-color: #334155;
-            border-color: #475569;
+
+            button:hover {
+                background-color: #334155;
+                border-color: #475569;
+            }
+
+        .btn-reset {
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #f87171;
+            background: transparent;
         }
-        .btn-reset { border-color: rgba(239, 68, 68, 0.3); color: #f87171; background: transparent; }
-        .btn-reset:hover { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; color: #ef4444; }
+
+            .btn-reset:hover {
+                background: rgba(239, 68, 68, 0.1);
+                border-color: #ef4444;
+                color: #ef4444;
+            }
 
         .btn-popup {
             background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
             border: none;
             color: #ffffff;
         }
-        .btn-popup:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-        }
+
+            .btn-popup:hover {
+                background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+                box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            }
     </style>
 </head>
 <body>
@@ -339,7 +462,7 @@
                 <small>* 이름/초성 자동 검색</small>
             </div>
             <div id="entryList"></div>
-            
+
             <div class="controls">
                 <button onclick="swapTeams()">🔄 팀 진영 스왑</button>
                 <button onclick="tradeSelectedPlayers()">🤝 선택 인원 1:1 교환</button>
@@ -356,7 +479,7 @@
                 <div class="team-title-red">🔸 2팀 (레드 진영)</div>
                 <div id="redBoard"></div>
             </div>
-            
+
             <div style="background: #0f1626; border: 1px solid var(--panel-border); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="font-size: 13px; font-weight: 700; color: #cbd5e1; display: flex; justify-content: space-between; align-items: center;">
                     <span>📋 디스코드 제출용 텍스트</span>
@@ -372,7 +495,7 @@
             <div class="panel-title">
                 <span>🗂️ 내전 멤버 통합 저장소 관리</span>
             </div>
-            
+
             <div class="db-grid-layout">
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div style="background: #0f1626; padding: 18px; border-radius: 8px; border: 1px dashed #334155;">
@@ -387,13 +510,23 @@
                         <input type="text" id="addLolName" placeholder="롤 닉네임 (예: 햄부기파워)">
                         <div style="display: flex; gap: 6px;">
                             <select id="addTier">
-                                <option value="CH">CH</option><option value="GM">GM</option><option value="M">M</option>
-                                <option value="D">D</option><option value="E">E</option><option value="P">P</option>
-                                <option value="G">G</option><option value="S">S</option><option value="B">B</option><option value="I">I</option>
+                                <option value="CH">CH</option>
+                                <option value="GM">GM</option>
+                                <option value="M">M</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="P">P</option>
+                                <option value="G">G</option>
+                                <option value="S">S</option>
+                                <option value="B">B</option>
+                                <option value="I">I</option>
                             </select>
                             <select id="addPos">
-                                <option value="탑">탑</option><option value="정글">정글</option>
-                                <option value="미드">미드</option><option value="원딜">원딜</option><option value="서폿">서폿</option>
+                                <option value="탑">탑</option>
+                                <option value="정글">정글</option>
+                                <option value="미드">미드</option>
+                                <option value="원딜">원딜</option>
+                                <option value="서폿">서폿</option>
                             </select>
                         </div>
                         <button onclick="addMemberToDB()" style="background: #334155; border:none; margin-top: 4px; color:#fff;">➕ 멤버 데이터 저장</button>
@@ -404,8 +537,6 @@
                     <div style="font-size: 14px; font-weight: 700; color: var(--text-main); display: flex; justify-content: space-between; align-items: center;">
                         <span>📋 메모장 등록 멤버 (<span id="memberCount">0</span>명)</span>
                         <div style="display: flex; gap: 6px;">
-                            <button onclick="copyAllDatabaseToClipboard()" style="background: #10b981; border: none; color: #fff; padding: 6px 14px; font-size: 12px; border-radius: 4px;">📋 전체 명단 복사</button>
-                            <button onclick="clearAllDatabase()" style="background: #ef4444; border: none; color: #fff; padding: 6px 14px; font-size: 12px; border-radius: 4px;">🧹 전체 명단 초기화</button>
                         </div>
                     </div>
                     <div class="db-list" id="dbList"></div>
@@ -414,12 +545,51 @@
         </div>
     </div>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // 본인의 파이어베이스 콘솔 설정값으로 변경하여 사용하세요!
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            databaseURL: "https://hambugi-lol-default-rtdb.asia-southeast1.firebasedatabase.app/",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db, 'hambugi_db');
+
+        // 기존 자바스크립트 스크립트와 안전하게 브릿지 연결
+        window.firebaseDB = db;
+        window.firebaseRef = dbRef;
+        window.firebaseSet = set;
+        window.firebaseUpdate = update;
+        window.firebaseRemove = remove;
+        window.firebaseRefSingle = (name) => ref(db, 'hambugi_db/' + name);
+
+        // 파이어베이스 데이터 변경 감지 실시간 수신기 구동
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val();
+            window.mockDatabase = data || {};
+
+            // 화면 갱신
+            renderDBList();
+            syncCurrentPlayersWithDB();
+        });
+    </script>
+
     <script>
         const tierRank = { 'C': 1, 'CH': 1, 'GM': 2, 'M': 3, 'D': 4, 'E': 5, 'P': 6, 'G': 7, 'S': 8, 'B': 9, 'I': 10 };
         const posIcons = { '탑': '🛡️', '정글': '⚔️', '미드': '🔮', '원딜': '🏹', '서폿': '🌟', '미정': '❓' };
 
-        let mockDatabase = JSON.parse(localStorage.getItem('hambugi_db')) || {};
-        let popupWindow = null; 
+        // 파이어베이스 데이터 수신 대기용 전역 객체
+        window.mockDatabase = {};
+        let popupWindow = null;
         let hasResizedToCompact = false;
 
         let currentPlayers = Array.from({ length: 10 }, (_, i) => ({
@@ -440,7 +610,7 @@
         function switchTab(pageId, btn) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => { if(!el.classList.contains('btn-popup')) el.classList.remove('active'); });
-            
+
             document.getElementById(pageId).classList.add('active');
             btn.classList.add('active');
         }
@@ -451,7 +621,7 @@
                 return;
             }
 
-            hasResizedToCompact = false; 
+            hasResizedToCompact = false;
             popupWindow = window.open("", "BroadcastWindow", "width=900,height=760,resizable=yes,scrollbars=yes");
             popupWindow.document.write(`
                 <html>
@@ -516,9 +686,12 @@
             renderRightBoards();
         }
 
+        // 파이어베이스 실시간 연동 구동용 저장 함수
         function saveDB() {
-            localStorage.setItem('hambugi_db', JSON.stringify(mockDatabase));
-            renderDBList();
+            if (window.firebaseSet && window.firebaseRef) {
+                window.firebaseSet(window.firebaseRef, mockDatabase)
+                    .catch(err => console.error("파이어베이스 동기화 실패:", err));
+            }
         }
 
         function importFromTextArea() {
@@ -530,7 +703,7 @@
 
             lines.forEach(line => {
                 if(!line.trim()) return;
-                
+
                 const row = line.trim().split("/");
                 const name = row[0] ? row[0].trim() : "";
                 const lolName = row[1] ? row[1].trim() : "";
@@ -544,55 +717,12 @@
             });
 
             if(importCount > 0) {
-                alert(`🚀 성공: 총 ${importCount}명의 멤버 정보가 명단에 등록되었습니다.`);
+                alert(`🚀 성공: 총 ${importCount}명의 멤버 정보가 파이어베이스에 동기화되었습니다.`);
                 document.getElementById("csvPasteInput").value = "";
                 saveDB();
-                syncCurrentPlayersWithDB();
             } else {
                 alert("⚠️ 인식 실패: 데이터 구조(이름/닉네임/티어/라인)나 티어 대문자 입력(예: GM, D, P)을 확인해 주세요.");
             }
-        }
-
-        function copyAllDatabaseToClipboard() {
-            const keys = Object.keys(mockDatabase);
-            if (keys.length === 0) {
-                alert("저장소에 등록된 멤버 데이터가 없습니다.");
-                return;
-            }
-
-            let exportText = "";
-            keys.sort().forEach(name => {
-                const p = mockDatabase[name];
-                exportText += `${name}/${p.lolName}/${p.tier}/${p.pos}\n`;
-            });
-
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = exportText.trim();
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempTextArea);
-
-            alert("📋 저장소 내의 전체 명단 데이터가 슬래시(/) 양식으로 클립보드에 복사되었습니다!");
-        }
-
-        function clearAllDatabase() {
-            if (!confirm("⚠️ 경고: 저장소에 등록된 모든 멤버 데이터가 영구히 삭제됩니다.\n정말로 전체 초기화를 진행할까요?")) {
-                return;
-            }
-            if (!confirm("‼️ 마지막 확인: 복구할 수 없습니다. 정말 명단을 전부 비우시겠습니까?")) {
-                return;
-            }
-
-            mockDatabase = {};
-            saveDB();
-            
-            currentPlayers.forEach(p => {
-                p.name = ""; p.lolName = ""; p.tier = ""; p.pos = ""; p.team = "미지정"; p.selected = false;
-            });
-            
-            sortAllPlayersStructure();
-            alert("🧼 저장소 및 라이브 매칭룸 정보가 완전히 초기화되었습니다.");
         }
 
         function addMemberToDB() {
@@ -605,26 +735,31 @@
 
             mockDatabase[name] = { lolName: lolName, tier: tier, pos: pos };
             saveDB();
-            
+
             document.getElementById("addName").value = "";
             document.getElementById("addLolName").value = "";
-            
-            syncCurrentPlayersWithDB();
         }
 
         function updateDBInline(originalName, key, val) {
             if (mockDatabase[originalName]) {
                 mockDatabase[originalName][key] = val;
-                localStorage.setItem('hambugi_db', JSON.stringify(mockDatabase));
-                syncCurrentPlayersWithDB();
+                if(window.firebaseUpdate && window.firebaseRefSingle) {
+                    const userRef = window.firebaseRefSingle(originalName);
+                    window.firebaseUpdate(userRef, { [key]: val })
+                        .catch(err => console.error("원격 수정 실패:", err));
+                }
             }
         }
 
         function deleteMemberFromDB(name) {
             if(!confirm(`[${name}] 선수를 데이터 명단에서 영구 소거하시겠습니까?`)) return;
-            delete mockDatabase[name];
-            saveDB();
-            syncCurrentPlayersWithDB();
+            if(window.firebaseRemove && window.firebaseRefSingle) {
+                window.firebaseRemove(window.firebaseRefSingle(name))
+                    .then(() => {
+                        delete mockDatabase[name];
+                    })
+                    .catch(err => console.error("원격 삭제 실패:", err));
+            }
         }
 
         function syncCurrentPlayersWithDB() {
@@ -641,9 +776,11 @@
         function renderDBList() {
             const listContainer = document.getElementById("dbList");
             const countContainer = document.getElementById("memberCount");
+            if(!listContainer || !countContainer) return;
+
             listContainer.innerHTML = "";
             const keys = Object.keys(mockDatabase);
-            
+
             countContainer.innerText = keys.length;
 
             if(keys.length === 0) {
@@ -654,9 +791,9 @@
             keys.sort().forEach(name => {
                 const item = document.createElement("div");
                 item.className = "db-item";
-                
+
                 const pData = mockDatabase[name];
-                
+
                 let tierOptions = "";
                 ['CH','GM','M','D','E','P','G','S','B','I'].forEach(t => {
                     tierOptions += `<option value="${t}" ${pData.tier===t?'selected':''}>${t}</option>`;
@@ -697,6 +834,7 @@
 
         function renderLeftEntries() {
             const container = document.getElementById("entryList");
+            if(!container) return;
             container.innerHTML = "";
 
             currentPlayers.forEach((player) => {
@@ -728,6 +866,7 @@
             const blueBoard = document.getElementById("blueBoard");
             const redBoard = document.getElementById("redBoard");
 
+            if(!blueBoard || !redBoard) return;
             blueBoard.innerHTML = ""; redBoard.innerHTML = "";
 
             const waitingTeam = currentPlayers.filter(p => p.name && p.team === "미지정").sort(sortLogic);
@@ -743,7 +882,7 @@
                 const pWait = popupWindow.document.getElementById("pWait");
                 const pBlue = popupWindow.document.getElementById("pBlue");
                 const pRed = popupWindow.document.getElementById("pRed");
-                
+
                 const wSection = popupWindow.document.getElementById("wSection");
                 const tContainer = popupWindow.document.getElementById("tContainer");
 
@@ -752,7 +891,7 @@
                         if (wSection) wSection.style.display = "none";
                         if (tContainer) tContainer.classList.add("full-width-mode");
                         if (!hasResizedToCompact) {
-                            popupWindow.resizeTo(900, 500); 
+                            popupWindow.resizeTo(900, 500);
                             hasResizedToCompact = true;
                         }
                     } else {
@@ -801,6 +940,9 @@
         }
 
         function generateDiscordText(blueList, redList) {
+            const outputEl = document.getElementById("discordTextOutput");
+            if(!outputEl) return;
+
             let text = "내전 1팀 (블루)\n";
             if(blueList.length === 0) text += "(선택된 유저 없음)\n";
             blueList.slice(0, 5).forEach(p => { text += `${p.name} / ${p.tier} / ${p.pos}\n`; });
@@ -809,7 +951,7 @@
             if(redList.length === 0) text += "(선택된 유저 없음)\n";
             redList.slice(0, 5).forEach(p => { text += `${p.name} / ${p.tier} / ${p.pos}\n`; });
 
-            document.getElementById("discordTextOutput").value = text.trim();
+            outputEl.value = text.trim();
         }
 
         function copyDiscordText() {
@@ -822,7 +964,7 @@
         function updatePlayerName(id, value) {
             const p = currentPlayers.find(x => x.id === id);
             const searchStr = value.trim();
-            
+
             if (searchStr === "") {
                 p.name = ""; p.lolName = ""; p.tier = ""; p.pos = ""; p.team = "미지정";
                 sortAllPlayersStructure();
@@ -894,9 +1036,7 @@
             sortAllPlayersStructure();
         }
 
-        // 초기 구동
-        renderDBList();
-        sortAllPlayersStructure();
+        // 초기 수동 초기화 구문 제거 (파이어베이스 onValue가 초기 구동을 대체함)
     </script>
 </body>
 </html>
